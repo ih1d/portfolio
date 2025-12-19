@@ -11,5 +11,4 @@ main :: IO ()
 main = do
   let port = 8080
       staticDir = "static"
-  putStrLn $ "Starting server on http://localhost:" ++ show port
   run port $ serve portfolioAPI (server staticDir)

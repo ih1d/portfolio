@@ -66,21 +66,18 @@ resumePage = basePage "Resume - Isaac Lopez" $ do
        "Download Resume (PDF)"
 
   section_ [class_ "resume-preview"] $ do
-    h2_ "Summary"
-    p_ "Add your resume summary here or embed a PDF viewer."
+    h2_ "Preview"
+    iframe_ [ src_ "/static/docs/resume.pdf"
+            , width_ "100%"
+            , height_ "800"
+            , style_ "border: 1px solid #ccc; border-radius: 4px;"
+            ] ""
 
 -- | Papers page
 papersPage :: Html ()
 papersPage = basePage "Papers - Isaac Lopez" $ do
   section_ $ do
     h1_ "Research Papers"
-    p_ "A collection of my research papers and publications."
-
-  section_ [class_ "papers-list"] $ do
-    h2_ "Publications"
-    div_ [class_ "paper"] $ do
-      h3_ "Example Paper Title"
-      p_ [class_ "paper-meta"] "Conference/Journal Name, Year"
-      p_ "Brief description of the paper and its contributions."
-      a_ [href_ "/static/docs/papers/example.pdf", class_ "btn-small"]
-         "Download PDF"
+    ul_ [class_ "papers-list"] $ do
+      li_ $ a_ [href_ "/static/docs/papers/reflec.pdf", target_ "_blank"]
+            "A Reflective Language for the Analysis of Dataflow Semantics"
